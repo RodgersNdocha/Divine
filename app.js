@@ -105,3 +105,40 @@ if (waTrigger && waPopup) {
     }
   }, 4000);
 }
+
+// Continuous Typewriter Effect in Hero
+const typedTextEl = document.getElementById('typedText');
+if (typedTextEl) {
+  const phrase = 'entertainment solution.';
+  let index = phrase.length;
+  let isDeleting = true;
+  const typeSpeed = 90;
+  const deleteSpeed = 45;
+  const holdTime = 2200;
+  const pauseEmpty = 450;
+
+  function typeTick() {
+    if (isDeleting) {
+      index--;
+      typedTextEl.textContent = phrase.slice(0, index);
+      if (index === 0) {
+        isDeleting = false;
+        setTimeout(typeTick, pauseEmpty);
+        return;
+      }
+      setTimeout(typeTick, deleteSpeed);
+    } else {
+      index++;
+      typedTextEl.textContent = phrase.slice(0, index);
+      if (index === phrase.length) {
+        isDeleting = true;
+        setTimeout(typeTick, holdTime);
+        return;
+      }
+      setTimeout(typeTick, typeSpeed);
+    }
+  }
+
+  // Initial hold before first deletion
+  setTimeout(typeTick, 1800);
+}

@@ -51,6 +51,9 @@ h3 { font-size: 1.45rem; }
 .hero { padding: 64px 0 0; }
 .hero__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
 .hero h1 { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; margin-bottom: 24px; }
+.hero__typewriter { color: var(--red); }
+.hero__cursor { display: inline-block; color: var(--red); font-weight: 400; margin-left: 2px; animation: cursorBlink 0.85s infinite; }
+@keyframes cursorBlink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 .hero__lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 46ch; margin-bottom: 32px; }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero__photo { position: relative; }
